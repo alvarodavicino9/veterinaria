@@ -37,6 +37,8 @@ npm run preview   # sirve la carpeta dist/ para probarla
   y lo cancele o reprograme sin depender del panel.
 - **Botón flotante de WhatsApp** en todo el sitio público, con estado "disponible ahora" según
   el horario real de atención y opciones rápidas predefinidas (turno, pedido, productos, urgencia).
+- **Fotos reales** de mascotas y atención veterinaria en el hero, la sección "Nosotros", las
+  categorías de la tienda y los servicios (ver `src/data/images.js`).
 - **Panel de vendedores** (`/panel/ingresar`) protegido por login, con tres secciones:
   - **Turnos**: lista o vista calendario semanal, con todos los detalles y cambio de estado.
   - **Pedidos**: detalle completo de cada compra, con cambio de estado.
@@ -70,6 +72,10 @@ backend real sea un cambio acotado:
    (por ejemplo con un Edge Function de Supabase).
 5. **Contenido real**: reemplazar el número de WhatsApp (`src/data/business.js`), productos,
    textos y ubicación del mapa por los datos reales de la veterinaria.
+6. **Fotos propias**: `src/data/images.js` centraliza todas las fotos del sitio (son fotos de
+   stock gratuitas de Unsplash, elegidas para que se vea profesional desde ya). Cuando la
+   veterinaria tenga sus propias fotos (local, equipo, pacientes), alcanza con reemplazar cada
+   URL de ese archivo — no hay que tocar ningún componente.
 
 ## Estructura del proyecto
 

@@ -7,6 +7,7 @@ import {
   HeartPulse,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { IMAGES } from "../../data/images";
 
 const ICONS = {
   alimento: Bone,
@@ -17,31 +18,27 @@ const ICONS = {
   salud: HeartPulse,
 };
 
-const GRADIENTS = {
-  alimento: "from-brand-500 to-brand-700",
-  ropa: "from-lime-400 to-lime-600",
-  accesorios: "from-brand-400 to-brand-600",
-  higiene: "from-brand-300 to-brand-500",
-  juguetes: "from-lime-300 to-lime-500",
-  salud: "from-brand-600 to-brand-800",
-};
-
 export default function ProductThumb({ category, className = "" }) {
   const Icon = ICONS[category] || PawPrint;
-  const gradient = GRADIENTS[category] || "from-brand-500 to-brand-700";
+  const photo = IMAGES.categories[category];
 
   return (
-    <div
-      className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center ${className}`}
-    >
-      <div className="absolute inset-0 paw-bg text-white/10" />
-      <motion.div
-        whileHover={{ scale: 1.12, rotate: -6 }}
-        transition={{ type: "spring", stiffness: 260, damping: 14 }}
-        className="relative z-10 bg-white/15 backdrop-blur-sm rounded-full p-5"
-      >
-        <Icon size={38} strokeWidth={1.8} className="text-white" />
-      </motion.div>
+    <div className={`relative overflow-hidden rounded-2xl bg-brand-100 ${className}`}>
+      {photo && (
+        <motion.img
+          src={photo}
+          alt=""
+          loading="lazy"
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.06 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-900/25 via-transparent to-transparent" />
+      <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-soft">
+        <Icon size={14} strokeWidth={2} className="text-brand-700" />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Stethoscope, Scissors, Syringe, CalendarHeart, Check } from "lucide-react";
 import { SERVICES } from "../data/services";
+import { IMAGES } from "../data/images";
 import Reveal from "../components/ui/Reveal";
 import Button from "../components/ui/Button";
 
@@ -27,9 +28,12 @@ export default function Services() {
           const Icon = ICONS[s.icon];
           return (
             <Reveal key={s.id} delay={i * 0.1}>
-              <div className="bg-white rounded-3xl p-8 shadow-soft grid sm:grid-cols-[auto_1fr_auto] gap-6 items-center">
-                <div className="w-16 h-16 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center">
-                  <Icon size={28} />
+              <div className="bg-white rounded-3xl p-4 sm:p-5 shadow-soft grid sm:grid-cols-[9rem_1fr_auto] gap-5 items-center">
+                <div className="relative w-full h-28 sm:h-24 rounded-2xl overflow-hidden">
+                  <img src={IMAGES.services[s.id]} alt={s.label} className="w-full h-full object-cover" />
+                  <div className="absolute bottom-1.5 left-1.5 bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-soft text-brand-600">
+                    <Icon size={16} />
+                  </div>
                 </div>
                 <div>
                   <h2 className="font-display font-bold text-xl text-brand-900">{s.label}</h2>

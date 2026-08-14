@@ -1,4 +1,5 @@
 import { Cat, HeartHandshake, Microscope, Sparkles } from "lucide-react";
+import { IMAGES } from "../data/images";
 import Reveal from "../components/ui/Reveal";
 
 const VALUES = [
@@ -25,6 +26,12 @@ export default function About() {
           </Reveal>
         </div>
       </section>
+
+      <Reveal className="max-w-5xl mx-auto px-6 -mt-10 relative">
+        <div className="rounded-3xl overflow-hidden shadow-2xl h-72 sm:h-96">
+          <img src={IMAGES.about} alt="Perro y gato cuidados en 27 Vet" className="w-full h-full object-cover" />
+        </div>
+      </Reveal>
 
       <section className="max-w-6xl mx-auto px-6 py-20 grid sm:grid-cols-3 gap-6">
         {VALUES.map((v, i) => (

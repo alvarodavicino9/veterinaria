@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { CalendarHeart, ShoppingBag, Cat, Sparkles, Stethoscope } from "lucide-react";
 import Button from "../ui/Button";
 import AnimatedCounter from "../ui/AnimatedCounter";
+import { IMAGES } from "../../data/images";
 
 const floatingPaws = [
   { top: "12%", left: "6%", size: 26, delay: 0, duration: 6 },
@@ -116,23 +117,64 @@ export default function Hero() {
 
         <motion.div
           style={{ y: yIllustration }}
-          initial={{ opacity: 0, scale: 0.85, rotate: -6 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative hidden lg:block"
+          className="relative hidden lg:block h-[26rem] xl:h-[30rem]"
         >
-          <div className="aspect-square rounded-[3rem] bg-gradient-to-br from-lime-400/90 to-lime-300/80 flex items-center justify-center shadow-2xl">
-            <motion.div
-              animate={{ y: [0, -14, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Cat size={160} strokeWidth={1} className="text-brand-800" />
-            </motion.div>
-          </div>
+          {/* foto principal: perro y gato */}
+          <motion.div
+            animate={{ y: [0, -14, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-2 left-2 w-[72%] aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl ring-4 ring-white/20 -rotate-3"
+          >
+            <img
+              src={IMAGES.hero}
+              alt="Perro y gato cuidados por 27 Vet"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          {/* foto secundaria: consulta veterinaria */}
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="absolute bottom-0 right-0 w-[54%] aspect-square rounded-[2rem] overflow-hidden shadow-2xl ring-4 ring-white/30 rotate-6 z-10"
+          >
+            <img
+              src={IMAGES.services.consulta}
+              alt="Atención veterinaria personalizada en 27 Vet"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          {/* foto terciaria: mascota con juguetes */}
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute top-6 right-0 w-[34%] aspect-square rounded-3xl overflow-hidden shadow-xl ring-4 ring-lime-300/60 rotate-6 z-20 hidden xl:block"
+          >
+            <img
+              src={IMAGES.categories.juguetes}
+              alt="Mascota feliz con sus juguetes de 27 Vet"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          {/* insignia flotante con huella */}
+          <motion.div
+            animate={{ y: [0, -8, 0], rotate: [0, 12, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-3 left-[38%] w-12 h-12 rounded-full bg-lime-400 text-brand-900 flex items-center justify-center shadow-lg z-30"
+          >
+            <Cat size={22} />
+          </motion.div>
+
+          {/* contador animado */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute -bottom-6 -left-8 bg-white text-brand-800 rounded-2xl px-5 py-3 shadow-soft font-display font-bold text-sm"
+            className="absolute bottom-4 -left-4 bg-white text-brand-800 rounded-2xl px-5 py-3 shadow-soft font-display font-bold text-sm z-30"
           >
             <AnimatedCounter value={5000} prefix="+" suffix=" mascotas atendidas" />
           </motion.div>

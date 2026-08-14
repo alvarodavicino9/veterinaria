@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { MapPin, Clock, Phone } from "lucide-react";
 import { formatHoursLine, isOpenNow } from "../../lib/hours";
 import Reveal from "../ui/Reveal";
@@ -8,10 +9,32 @@ export default function HoursLocation() {
   const open = isOpenNow();
   return (
     <section className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-8">
-      <Reveal className="rounded-3xl overflow-hidden bg-brand-100 relative min-h-[320px] flex items-center justify-center">
-        <div className="absolute inset-0 paw-bg text-brand-300/40" />
+      <Reveal className="rounded-3xl overflow-hidden bg-gradient-to-br from-brand-100 to-brand-50 relative min-h-[320px] flex items-center justify-center">
+        <motion.div
+          animate={{ backgroundPosition: ["0px 0px", "22px 22px"] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 paw-bg text-brand-300/40"
+        />
         <div className="relative text-center px-6">
-          <MapPin size={36} className="mx-auto text-brand-600 mb-3" />
+          <div className="relative inline-flex items-center justify-center mb-3">
+            <motion.span
+              animate={{ scale: [1, 2.1], opacity: [0.5, 0] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
+              className="absolute w-10 h-10 rounded-full bg-brand-400"
+            />
+            <motion.span
+              animate={{ scale: [1, 1.8], opacity: [0.4, 0] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut", delay: 0.6 }}
+              className="absolute w-10 h-10 rounded-full bg-brand-400"
+            />
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-14 h-14 rounded-full bg-brand-600 text-white flex items-center justify-center shadow-lg"
+            >
+              <MapPin size={26} />
+            </motion.div>
+          </div>
           <p className="font-display font-bold text-brand-800">Encontranos en Córdoba</p>
           <p className="text-brand-600 text-sm mt-1">Reemplazar por mapa embebido de Google Maps</p>
           <a
