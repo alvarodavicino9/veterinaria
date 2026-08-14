@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Baloo 2", "Fredoka", ui-rounded, "Segoe UI", sans-serif;
+  --font-body: "Nunito", "Segoe UI", sans-serif;
+
+  /* Brand purple (logo background) */
+  --color-brand-50: #f5f1fb;
+  --color-brand-100: #ebe1f7;
+  --color-brand-200: #d1b8ec;
+  --color-brand-300: #b088dd;
+  --color-brand-400: #8f5dc9;
+  --color-brand-500: #7140ae;
+  --color-brand-600: #5a2f8f;
+  --color-brand-700: #4a2673;
+  --color-brand-800: #3a1d5a;
+  --color-brand-900: #2b1442;
+
+  /* Lime accent (logo "vet" text) */
+  --color-lime-50: #fafce3;
+  --color-lime-100: #f3f7b8;
+  --color-lime-200: #e8ef8a;
+  --color-lime-300: #dae65f;
+  --color-lime-400: #c9d938;
+  --color-lime-500: #b0c026;
+  --color-lime-600: #8c9a1c;
+  --color-lime-700: #6a7515;
+
+  --color-cream: #fdfbf5;
+  --color-ink: #241a35;
+
+  --shadow-soft: 0 10px 30px -10px rgba(43, 20, 66, 0.25);
+  --shadow-pop: 0 6px 0 0 rgba(43, 20, 66, 0.9);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background-color: var(--color-lime-300);
+  color: var(--color-brand-800);
+}
+
+/* paw-print scatter background utility */
+.paw-bg {
+  background-image: radial-gradient(currentColor 2px, transparent 2px);
+  background-size: 22px 22px;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
