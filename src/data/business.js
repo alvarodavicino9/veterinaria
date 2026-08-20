@@ -1,10 +1,10 @@
 // Single source of truth for contact info & brand constants.
 // Swap these for the real values whenever they're available.
 export const BUSINESS = {
-  name: "27 Vet",
+  name: "DS Vet & Petshop",
   legalPhone: "+54 9 351 000-0000",
   whatsapp: "5493510000000", // digits only, country + area code, for wa.me links
-  email: "hola@27vet.com",
+  email: "hola@dsvet.com",
   instagram: "#",
   facebook: "#",
   mapsUrl: "https://maps.app.goo.gl/UGvAeEfhSknT9j4q6",

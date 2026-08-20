@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import Reveal from "../ui/Reveal";
+import TiltCard from "../ui/TiltCard";
 
 const TESTIMONIALS = [
   {
@@ -41,8 +42,9 @@ export default function Testimonials() {
       <div className="grid sm:grid-cols-3 gap-6">
         {TESTIMONIALS.map((t, i) => (
           <Reveal key={t.name} delay={i * 0.1}>
-            <motion.div
-              whileHover={{ y: -8, rotate: i % 2 === 0 ? -1.5 : 1.5 }}
+            <TiltCard
+              max={5}
+              whileHover={{ y: -8 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="bg-white rounded-3xl p-7 shadow-soft hover:shadow-xl transition-shadow relative h-full"
             >
@@ -62,7 +64,7 @@ export default function Testimonials() {
                 <p className="font-display font-bold text-brand-900 text-sm">{t.name}</p>
                 <p className="text-ink/50 text-xs">{t.pet}</p>
               </div>
-            </motion.div>
+            </TiltCard>
           </Reveal>
         ))}
       </div>

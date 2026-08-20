@@ -379,9 +379,9 @@ export default function BookingWizard({ preselect }) {
               </a>
               <a
                 href={googleCalendarLink({
-                  title: `${service.label} · 27 Vet — ${confirmed.petName}`,
+                  title: `${service.label} · DS Vet & Petshop — ${confirmed.petName}`,
                   details: `Turno de ${confirmed.subService} para ${confirmed.petName}. Código: ${shortCode(confirmed.id)}`,
-                  location: "27 Vet",
+                  location: "DS Vet & Petshop",
                   date: confirmed.date,
                   time: confirmed.time,
                   durationMin: service.duration,

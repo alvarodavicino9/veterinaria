@@ -130,7 +130,7 @@ export default function Hero() {
           >
             <img
               src={IMAGES.hero}
-              alt="Perro y gato cuidados por 27 Vet"
+              alt="Perro y gato cuidados por DS Vet & Petshop"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -143,7 +143,7 @@ export default function Hero() {
           >
             <img
               src={IMAGES.services.consulta}
-              alt="Atención veterinaria personalizada en 27 Vet"
+              alt="Atención veterinaria personalizada en DS Vet & Petshop"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -156,7 +156,7 @@ export default function Hero() {
           >
             <img
               src={IMAGES.categories.juguetes}
-              alt="Mascota feliz con sus juguetes de 27 Vet"
+              alt="Mascota feliz con sus juguetes de DS Vet & Petshop"
               className="w-full h-full object-cover"
             />
           </motion.div>

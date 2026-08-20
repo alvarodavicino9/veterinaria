@@ -126,6 +126,6 @@ export const useAdminDataStore = create(
           orders: get().orders.map((o) => (o.id === orderId ? { ...o, status } : o)),
         }),
     }),
-    { name: "27vet-admin-data" }
+    { name: "dsvet-admin-data" }
   )
 );

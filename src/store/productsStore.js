@@ -44,7 +44,7 @@ export const useProductsStore = create(
           }),
         }),
     }),
-    { name: "27vet-products" }
+    { name: "dsvet-products" }
   )
 );
 

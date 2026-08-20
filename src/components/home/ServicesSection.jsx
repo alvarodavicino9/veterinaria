@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Stethoscope, Scissors, Syringe, ArrowRight } from "lucide-react";
 import { SERVICES } from "../../data/services";
 import Reveal from "../ui/Reveal";
+import TiltCard from "../ui/TiltCard";
 
 const ICONS = { Stethoscope, Scissors, Syringe };
 
@@ -29,10 +30,7 @@ export default function ServicesSection() {
           const Icon = ICONS[service.icon];
           return (
             <Reveal key={service.id} delay={i * 0.1}>
-              <motion.div
-                whileHover={{ y: -8 }}
-                transition={{ type: "spring", stiffness: 300, damping: 22 }}
-              >
+              <TiltCard max={5} whileHover={{ y: -8 }} transition={{ type: "spring", stiffness: 300, damping: 22 }}>
                 <Link
                   to="/turnos"
                   state={{ preselect: service.id }}
@@ -53,7 +51,7 @@ export default function ServicesSection() {
                     Reservar turno <ArrowRight size={15} />
                   </span>
                 </Link>
-              </motion.div>
+              </TiltCard>
             </Reveal>
           );
         })}

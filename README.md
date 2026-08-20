@@ -1,6 +1,6 @@
-# 27 Vet — sitio web
+# DS Vet & Petshop — sitio web
 
-Prototipo funcional de la web de **27 Vet** (veterinaria + petshop): tienda online, sistema de
+Prototipo funcional de la web de **DS Vet & Petshop** (veterinaria + petshop): tienda online, sistema de
 turnos y panel de vendedores. Hecho con **React + Vite**, **Tailwind CSS v4** y **Framer Motion**
 para las animaciones.
 
@@ -43,7 +43,7 @@ npm run preview   # sirve la carpeta dist/ para probarla
   - **Turnos**: lista o vista calendario semanal, con todos los detalles y cambio de estado.
   - **Pedidos**: detalle completo de cada compra, con cambio de estado.
   - **Productos**: gestión de stock y precio por producto, y mostrar/ocultar de la tienda.
-  - Usuario demo: `admin@27vet.com` / contraseña `27vet2026`
+  - Usuario demo: `admin@dsvet.com` / contraseña `dsvet2026`
 
 ## Datos y "backend"
 

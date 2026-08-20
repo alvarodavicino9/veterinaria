@@ -81,7 +81,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-5 text-center text-xs text-brand-300 relative">
-        © {new Date().getFullYear()} 27 Vet · Veterinaria & Petshop · Todos los derechos reservados
+        © {new Date().getFullYear()} DS Vet & Petshop · Todos los derechos reservados
       </div>
     </footer>
   );

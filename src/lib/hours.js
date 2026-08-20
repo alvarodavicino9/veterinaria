@@ -1,4 +1,4 @@
-// Business hours for 27 Vet
+// Business hours for DS Vet & Petshop
 // 0 = domingo ... 6 = sábado
 export const BUSINESS_HOURS = {
   0: null, // domingo cerrado

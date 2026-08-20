@@ -17,7 +17,7 @@ export default function About() {
             <span className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 text-sm font-semibold mb-5">
               <Sparkles size={14} className="text-lime-300" /> Nuestra historia
             </span>
-            <h1 className="font-display font-extrabold text-4xl sm:text-5xl">Somos 27 Vet</h1>
+            <h1 className="font-display font-extrabold text-4xl sm:text-5xl">Somos DS Vet & Petshop</h1>
             <p className="mt-5 text-brand-100 text-lg leading-relaxed">
               Veterinaria y petshop especializados en atención personalizada y diagnósticos
               avanzados, con excelente manejo de felinos y técnicas cat friendly. Acompañamos a
@@ -29,7 +29,7 @@ export default function About() {
 
       <Reveal className="max-w-5xl mx-auto px-6 -mt-10 relative">
         <div className="rounded-3xl overflow-hidden shadow-2xl h-72 sm:h-96">
-          <img src={IMAGES.about} alt="Perro y gato cuidados en 27 Vet" className="w-full h-full object-cover" />
+          <img src={IMAGES.about} alt="Perro y gato cuidados en DS Vet & Petshop" className="w-full h-full object-cover" />
         </div>
       </Reveal>
 
