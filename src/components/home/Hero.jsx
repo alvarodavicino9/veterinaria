@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CalendarHeart, ShoppingBag, Cat, Sparkles, Stethoscope } from "lucide-react";
 import Button from "../ui/Button";
@@ -22,8 +22,33 @@ export default function Hero() {
   const yIllustration = useTransform(scrollYProgress, [0, 1], [0, 110]);
   const fade = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
 
+  // Subtle mouse-parallax on the photo collage: it drifts a few pixels
+  // toward the cursor, layered on top of the scroll parallax above —
+  // small movement on purpose, this is meant to feel alive, not flashy.
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
+  const springX = useSpring(mouseX, { stiffness: 60, damping: 18 });
+  const springY = useSpring(mouseY, { stiffness: 60, damping: 18 });
+  const parallaxX = useTransform(springX, [0, 1], [-14, 14]);
+  const parallaxY = useTransform(springY, [0, 1], [-14, 14]);
+
+  const handleHeroMouseMove = (e) => {
+    const rect = sectionRef.current.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width);
+    mouseY.set((e.clientY - rect.top) / rect.height);
+  };
+  const handleHeroMouseLeave = () => {
+    mouseX.set(0.5);
+    mouseY.set(0.5);
+  };
+
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-gradient-to-b from-brand-700 via-brand-700 to-brand-900 text-white pt-14 pb-28 sm:pt-20 sm:pb-36">
+    <section
+      ref={sectionRef}
+      onMouseMove={handleHeroMouseMove}
+      onMouseLeave={handleHeroMouseLeave}
+      className="relative overflow-hidden bg-gradient-to-b from-brand-700 via-brand-700 to-brand-900 text-white pt-14 pb-28 sm:pt-20 sm:pb-36"
+    >
       {/* decorative blobs (parallax on scroll) */}
       <motion.div
         style={{ y: yBlob1 }}
@@ -122,6 +147,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative hidden lg:block h-[26rem] xl:h-[30rem]"
         >
+        <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute inset-0">
           {/* foto principal: perro y gato */}
           <motion.div
             animate={{ y: [0, -14, 0] }}
@@ -178,6 +204,7 @@ export default function Hero() {
           >
             <AnimatedCounter value={5000} prefix="+" suffix=" mascotas atendidas" />
           </motion.div>
+        </motion.div>
         </motion.div>
       </motion.div>
 

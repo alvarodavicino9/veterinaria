@@ -7,7 +7,7 @@ import {
   HeartPulse,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { IMAGES } from "../../data/images";
+import { productImage } from "../../data/images";
 
 const ICONS = {
   alimento: Bone,
@@ -18,12 +18,16 @@ const ICONS = {
   salud: HeartPulse,
 };
 
-export default function ProductThumb({ category, className = "" }) {
-  const Icon = ICONS[category] || PawPrint;
-  const photo = IMAGES.categories[category];
+// Accepts a full `product` object so each item can show a distinct photo
+// from its category's pair (see productImage() in data/images.js) — falls
+// back to just `category` for spots that only need the icon/placeholder.
+export default function ProductThumb({ product, category, className = "" }) {
+  const cat = category || product?.category;
+  const Icon = ICONS[cat] || PawPrint;
+  const photo = product ? productImage(product) : null;
 
   return (
-    <div className={`relative overflow-hidden rounded-2xl bg-brand-100 ${className}`}>
+    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-100 to-brand-50 ${className}`}>
       {photo && (
         <motion.img
           src={photo}

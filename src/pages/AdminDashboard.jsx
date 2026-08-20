@@ -19,10 +19,14 @@ import AppointmentCard from "../components/admin/AppointmentCard";
 import AppointmentsCalendar from "../components/admin/AppointmentsCalendar";
 import OrderCard from "../components/admin/OrderCard";
 import ProductRow from "../components/admin/ProductRow";
+import RevenueChart from "../components/admin/charts/RevenueChart";
+import OrdersTurnosChart from "../components/admin/charts/OrdersTurnosChart";
+import CategorySalesChart from "../components/admin/charts/CategorySalesChart";
 import { useAdminDataStore } from "../store/adminDataStore";
 import { useAuthStore } from "../store/authStore";
 import { useProductsStore, LOW_STOCK_THRESHOLD } from "../store/productsStore";
 import { formatPrice } from "../components/shop/ProductCard";
+import { SALES_TREND, CATEGORY_SALES } from "../data/salesDemo";
 
 const today = () => new Date().toISOString().slice(0, 10);
 
@@ -109,6 +113,23 @@ export default function AdminDashboard() {
           <StatCard icon={ShoppingBag} label="Pedidos nuevos" value={stats.pedidosNuevos} />
           <StatCard icon={DollarSign} label="Ingresos de hoy" value={formatPrice(stats.ingresosHoy)} accent="lime" />
           <StatCard icon={PackageX} label="Productos con poco stock" value={stats.stockBajo} />
+        </div>
+
+        <div className="mb-10">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="font-display font-bold text-xl text-brand-900">Ventas e ingresos</h2>
+          </div>
+          <div className="grid lg:grid-cols-3 gap-5">
+            <div className="lg:col-span-2 bg-white rounded-3xl p-6 shadow-soft">
+              <RevenueChart data={SALES_TREND} />
+            </div>
+            <div className="bg-white rounded-3xl p-6 shadow-soft">
+              <CategorySalesChart data={CATEGORY_SALES} />
+            </div>
+            <div className="lg:col-span-3 bg-white rounded-3xl p-6 shadow-soft">
+              <OrdersTurnosChart data={SALES_TREND} />
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">

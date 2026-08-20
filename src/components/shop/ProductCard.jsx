@@ -22,7 +22,7 @@ export default function ProductCard({ product, index = 0 }) {
       className={`group bg-white rounded-3xl p-3 shadow-soft flex flex-col ${outOfStock ? "opacity-70" : ""}`}
     >
       <Link to={`/tienda/${product.id}`} className="block relative">
-        <ProductThumb category={product.category} className="w-full aspect-square" />
+        <ProductThumb product={product} className="w-full aspect-square" />
         {outOfStock ? (
           <span className="absolute top-3 left-3 bg-ink/80 text-white text-xs font-bold font-display px-3 py-1 rounded-full shadow-soft">
             Sin stock
